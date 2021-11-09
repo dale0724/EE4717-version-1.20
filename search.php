@@ -1,0 +1,118 @@
+<?php
+session_start();
+?>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Cinema Home</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div class="navbar">
+<div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo"><a href="home.php">CENIME</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item"><a href="home.php">HOME</a></li>
+                    <li class="menu-list-item"><a href="now-showing.php">NOW SHOWING</a></li>
+                    <li class="menu-list-item"><a href="upcoming.php">UPCOMING</a></li>
+                    <div>
+                        <form class="searchForm" method="POST" action="search.php">
+                            <select name="TimeSlot">
+                                <option value="Morning">Morning</option>
+                                <option value="Afternoon">Afternoon</option>
+                                <option value="Evening">Evening</option>
+                            </select>
+                            <button type="submit" id="searchButton" value="Search">SEARCH</button>
+                        </form>
+                    </div>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <?php
+                if (isset($_SESSION["valid_user"])) {
+                    echo  '<a href="profile.php"><img class="profile-picture" src="pics/profile.png" alt=""></a>';
+                }
+                ?>
+                <div class="profile-text-container">
+                    <?php
+                    if (isset($_SESSION["valid_user"])) {
+                        echo  '<span class="profile-text">' . $_SESSION["valid_user"] . '</span><a href="logout.php">&nbsp&nbsp&nbsp log out </a>';
+                    } else {
+                        echo '<a href="logIn.html"><span class="profile-text">LOGIN</span></a>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('pics/no-time-to-die.jpg');">
+                <h1 class="movie-list-title">Welcome to Cenima!</h1>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">RESULT</h1>
+                <div class="movie-list-wrapper">
+                    <?php
+                        $servername = "localhost";
+                        $username = "f32ee";
+                        $password = "f32ee";
+                        $dbname = "f32ee";
+                        $timeSlot = $_POST['TimeSlot'];
+
+                        // Create connection
+                        $conn = mysqli_connect($servername, $username, $password, $dbname);
+                        // Check connection
+                        if (!$conn) {
+                            die("Connection failed: " . mysqli_connect_error());
+                        }
+
+                        $sql = "SELECT * FROM Movies WHERE Movies.MovieID IN (SELECT MovieID from TimeSlotSeats where TimeSlot='$timeSlot')";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            $count = 0;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                if ($count % 4 == 0) {
+                                    echo '<div class="movie-list">';
+                                }
+                                echo '<form id="'.$row["MovieID"].'" class="movie-list-item" method="post" action="theMovie.php">';
+                                echo '<input type="hidden" name="MovieID" value="'.$row["MovieID"].'">';
+                                echo '<div class ="movie-list-item">';
+                                echo '<a onclick="document.getElementById(\''.$row["MovieID"].'\').submit();"><img class="movie-list-item-img" src="'.$row["Poster"].'" alt="" /></a>';
+                                echo '<div class="movie-list-item-title">'.$row["MovieName"].'</div>';
+                                echo '</div>';
+                                echo '</form>';
+                                $count = $count + 1;
+                                if ($count % 4 == 0) {
+                                    echo '</div>';
+                                }
+                            }
+                            if($count%4!=0){
+                                echo '</div>';
+                            }
+                        } else {
+                            echo "sql error";
+                        }
+                        mysqli_close($conn);
+                        ?>
+                </div>  
+            </div>
+        </div> 
+        <hr class="solid">
+        <footer>
+            <p>MOVIES, SHOWTIMES, TRAILERS AND MORE!</p><br>
+            <p>Cenime&copy 2021</p>
+        </footer> 
+    </div>
+</body>
+
+</html>

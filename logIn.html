@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Log in  page</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo"><a href="home.php">CENIME</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item"><a href="home.php">HOME</a></li>
+                    <li class="menu-list-item"><a href="now-showing.php">NOW SHOWING</a></li>
+                    <li class="menu-list-item"><a href="upcoming.php">UPCOMING</a></li>
+                    <div>
+                        <form class="searchForm" method="POST" action="search.php">
+                            <input type="text" placeholder="Try search morning" id="movieName" name="searchitem" size="45">
+                            <button type="submit" id="searchButton" value="Search">SEARCH</button>
+                        </form>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div class="login-container">
+            <h1>LOGIN</h1> <br /><br />
+            <form action="logIn.php" method=POST>
+            <input class ="login" type=text name="username" required placeholder="username"><br /><br />
+            <input class ="login" type=password id="password" name="password" required placeholder="password"><br /><br />
+            <input class ="login" type="submit" value="LOGIN" style="background-color:#4dbf00"> <br /><br />
+            <a href="registration.html" style="color: black;">Don't have an account? Sign up now></a>
+            </form>
+        </div>
+</body>
+</html>

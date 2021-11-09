@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  top: 0;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  color: white;
+  font-family: "Sen", sans-serif;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  font-size: 30px;
+  color: #4dbf00;
+}
+
+.menu-container {
+  flex: 6;
+}
+
+.menu-list {
+  display: flex;
+  list-style: none;
+}
+
+.menu-list-item {
+  margin-right: 20px;
+}
+
+a:hover{
+  font-weight:bold;
+  color: #4dbf00;
+}
+.profile-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-text-container {
+  margin: 0 20px;
+}
+
+.profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.container {
+  background-color: #151515;
+  min-height: calc(100vh - 50px);
+  color: white;
+}
+
+.content-container {
+  margin-left: 10px;
+  margin-right:10px;
+}
+
+.featured-content {
+  height: 50vh;
+  padding: 50px;
+}
+
+.featured-title {
+  width: 300px;
+}
+.movie-list-container {
+  padding: 0 20px;
+}
+
+.movie-list-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-list {
+  display: flex;
+  align-items: center;
+  height: 300px; 
+}
+
+.movie-list-item {
+  text-align: center;
+}
+
+.movie-list-item-img {
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.movie-list-item-title {
+  color:white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding-top:5px;
+}
+
+.trailer{
+  height: fit-content;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+#bookForm{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#bookForm label{
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: fit-content;
+}
+
+#bookForm select{
+  display: block;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#bookForm input{
+  display: block;
+  width: 50%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 940px){
+    .menu-container{
+        display: none;
+    }
+}
+.poster{
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  margin-top: 20px;
+  
+  font-weight: bold;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+.poster img{
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.description-container{
+  background-color: whitesmoke;
+  padding-bottom: 10%;
+}
+.description{
+  padding-top:50px;
+  padding-left:20%;
+  padding-right:20%;
+  background-color: whitesmoke;
+  color:#000;
+  line-height: 1.6;
+  padding-bottom: 5%;
+}
+
+.trailer{
+  height: fit-content;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+  margin-top: 50px;
+}
+
+footer{
+  width: 100%;
+  height: 10%;
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+  padding-bottom: 5%;
+}
+
+.login-container{
+  padding-left:20%;
+  padding-right:20%;
+  padding-top: 5%;
+  text-align: center;
+}
+
+.login{
+  border-radius: 25px;
+  border: 2px solid #222;
+  padding: 20px;
+  width: 300px;
+}
+
+.pay{
+  padding-left:20%;
+  padding-right:20%;
+  padding-top: 5%;
+  text-align: center;
+}
+
+.profile-table-container{
+  text-align: center;
+}
+
+.profile-table-container table{
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: #222 solid thin;
+  font-size: x-large;
+}
+.profile-table-container td{
+  margin: 20px;
+}
