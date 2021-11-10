@@ -76,7 +76,6 @@ session_start();
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 $hall = $row["Hall"];
-                echo $hall;
             }
 
             $sql = " INSERT INTO Tickets (TicketID,MovieID,TotalPrice,Seat,TimeSlot,UserName,Hall) VALUES (NULL,$movieID,$finalPrice,'$chosedSeats','$timeSlot','$username',$hall)";

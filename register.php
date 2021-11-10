@@ -18,8 +18,12 @@
                     <li class="menu-list-item"><a href="upcoming.php">UPCOMING</a></li>
                     <div>
                         <form class="searchForm" method="POST" action="search.php">
-                            <input type="text" placeholder="Try search morning" id="movieName" name="searchitem" size="45">
-                            <button type="submit" id="searchButton" value="Search" >SEARCH</button>
+                            <select name="TimeSlot">
+                                <option value="Morning">Morning</option>
+                                <option value="Afternoon">Afternoon</option>
+                                <option value="Evening">Evening</option>
+                            </select>
+                            <button type="submit" id="searchButton" value="Search">SEARCH</button>
                         </form>
                     </div>
                 </ul>
@@ -41,7 +45,7 @@
 		$sql = "SELECT * FROM Users Where UserName = '$username'";
 		//	echo "<br>". $sql. "<br>";
 		$result = $dbcnx->query($sql);
-		if ($result) {
+		if (mysqli_num_rows($result) > 0) {
 			echo "Duplicated User Name!<br>";
 			echo '<h2><a href="registration.html" style="color:black">Back<a/></h2>';
 			exit;

@@ -16,8 +16,12 @@
                     <li class="menu-list-item"><a href="upcoming.php">UPCOMING</a></li>
                     <div>
                         <form class="searchForm" method="POST" action="search.php">
-                            <input type="text" placeholder="Try search morning" id="movieName" name="searchitem" size="45">
-                            <button type="submit" id="searchButton" value="Search" >SEARCH</button>
+                            <select name="TimeSlot">
+                                <option value="Morning">Morning</option>
+                                <option value="Afternoon">Afternoon</option>
+                                <option value="Evening">Evening</option>
+                            </select>
+                            <button type="submit" id="searchButton" value="Search">SEARCH</button>
                         </form>
                     </div>
                 </ul>
